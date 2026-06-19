@@ -60,19 +60,17 @@ export default function Hero() {
         >
           Обсудить проект
         </a>
-        <div className={styles.socials}>
-          {socialLinks.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              className={styles.socialLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {s.label}
-            </a>
-          ))}
-        </div>
+        {socialLinks.map((s) => (
+          <a
+            key={s.label}
+            href={s.href}
+            className={styles.socialLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {s.label}
+          </a>
+        ))}
       </div>
     </section>
   );

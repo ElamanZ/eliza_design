@@ -93,40 +93,35 @@
   opacity: 0;
 }
 
-/* Bottom CTA + socials */
+/* Bottom CTA + Socials — container width, 4 equal columns */
 .bottom {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: row;
-  align-items: stretch;
   width: 100%;
 }
 
 .ctaButton {
-  display: inline-flex;
+  flex: 1;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--black);
-  color: var(--white);
+  align-self: flex-start;
+  background: #000;
+  color: #fff;
   font-size: 15px;
   font-weight: 600;
-  padding: 18px 40px;
+  padding: 20px 24px;
   letter-spacing: -0.01em;
+  border: 1px solid #000;
   transition: background 0.25s ease;
-  flex-shrink: 0;
   white-space: nowrap;
 }
 
 .ctaButton:hover {
   background: var(--purple);
-}
-
-.socials {
-  display: flex;
-  flex: 1;
-  border-top: 1px solid var(--gray-200);
-  border-bottom: 1px solid var(--gray-200);
+  border-color: var(--purple);
 }
 
 .socialLink {
@@ -134,17 +129,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: flex-end;
+  border: 1px solid #000;
   font-size: 14px;
-  font-weight: 400;
-  color: var(--black);
-  padding: 18px 16px;
-  border-left: 1px solid var(--gray-200);
-  transition: color 0.2s, background 0.2s;
+  font-weight: 500;
+  color: #000;
+  padding: 20px 16px;
   text-align: center;
+  transition: color 0.2s, background 0.2s;
 }
 
-.socialLink:last-child {
-  border-right: 1px solid var(--gray-200);
+/* avoid 2px between adjacent social links */
+.socialLink + .socialLink {
+  border-left: none;
 }
 
 .socialLink:hover {
@@ -224,23 +221,20 @@
   }
 
   .ctaButton {
-    padding: 18px 24px;
+    align-self: stretch;
+    padding: 16px 20px;
     font-size: 14px;
   }
 
-  .socials {
-    flex-direction: column;
-    border: none;
-  }
-
   .socialLink {
-    border: none;
-    border-top: 1px solid var(--gray-200);
+    align-self: stretch;
+    border-top: none;
     padding: 14px 16px;
+    font-size: 13px;
   }
 
-  .socialLink:last-child {
-    border-right: none;
-    border-bottom: 1px solid var(--gray-200);
+  /* restore left border on mobile (column layout, no adjacent doubling) */
+  .socialLink + .socialLink {
+    border-left: 1px solid #000;
   }
 }
