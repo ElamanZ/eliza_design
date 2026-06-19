@@ -1,0 +1,176 @@
+.footer {
+  background: var(--dark);
+  color: var(--white);
+  padding: 80px 0 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.heading {
+  font-size: clamp(44px, 7vw, 96px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--white);
+}
+
+.scrollTop {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white);
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: 8px;
+}
+
+.scrollTop:hover {
+  opacity: 1;
+}
+
+.subtext {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+  margin-bottom: 48px;
+}
+
+.actions {
+  display: flex;
+  align-items: stretch;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--white);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 18px 40px;
+  letter-spacing: -0.01em;
+  transition: background 0.25s ease, color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.ctaButton:hover {
+  background: var(--white);
+  color: var(--dark);
+}
+
+.socials {
+  display: flex;
+  flex: 1;
+}
+
+.socialLink {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--white);
+  padding: 18px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: none;
+  transition: background 0.2s;
+  text-align: center;
+}
+
+.socialLink:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Sparkle decorations */
+.star1,
+.star2,
+.star3,
+.starBottom {
+  position: absolute;
+  color: var(--white);
+  opacity: 0.5;
+  pointer-events: none;
+  font-size: 20px;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.star1 {
+  top: 48px;
+  left: 50%;
+  animation-delay: 0s;
+}
+
+.star2 {
+  bottom: 60px;
+  right: 80px;
+  font-size: 28px;
+  animation-delay: 1s;
+}
+
+.star3 {
+  top: 30%;
+  left: 80%;
+  font-size: 14px;
+  animation-delay: 0.5s;
+}
+
+.starBottom {
+  bottom: 24px;
+  left: 40px;
+  font-size: 24px;
+  animation-delay: 1.5s;
+  opacity: 0.3;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 0 40px;
+  }
+
+  .topRow {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .scrollTop {
+    align-self: flex-end;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .ctaButton {
+    text-align: center;
+    padding: 16px 32px;
+  }
+
+  .socials {
+    flex-direction: column;
+  }
+
+  .socialLink {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: none;
+    padding: 16px;
+  }
+}

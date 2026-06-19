@@ -1,0 +1,150 @@
+.section {
+  padding: 80px 0;
+}
+
+.header {
+  margin-bottom: 48px;
+}
+
+.heading {
+  font-size: clamp(36px, 6vw, 80px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--black);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.subheading {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--gray-200);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.09);
+  transform: translateY(-2px);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 60%;
+  background: var(--gray-100);
+  overflow: hidden;
+}
+
+.imagePlaceholder {
+  position: absolute;
+  inset: 0;
+  background: var(--gray-100);
+}
+
+.imageWrapper img {
+  transition: transform 0.4s ease;
+}
+
+.card:hover .imageWrapper img {
+  transform: scale(1.04);
+}
+
+.cardBody {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--black);
+}
+
+.cardDesc {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.cardMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.metaRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--gray-600);
+  line-height: 1.4;
+}
+
+.metaIcon {
+  display: flex;
+  align-items: center;
+  padding-top: 1px;
+  flex-shrink: 0;
+  color: var(--gray-400);
+}
+
+.price {
+  font-weight: 500;
+  color: var(--black);
+}
+
+.cardDivider {
+  border-top: 1px solid var(--gray-200);
+  margin-top: 4px;
+}
+
+.cardCta {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--purple);
+  padding-top: 4px;
+  transition: opacity 0.2s;
+  display: inline-block;
+}
+
+.cardCta:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
