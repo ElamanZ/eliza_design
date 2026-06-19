@@ -1,21 +1,13 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import SafeImage from '@/components/ui/SafeImage';
-import styles from './Hero.module.css';
-
-const floatingLabels = [
-  { text: 'Опыт 2+ лет', className: styles.tagExperience },
-  { text: 'Разработка сайтов —\nот идеи до запуска', className: styles.tagWebdev },
-  { text: 'Брендинг', className: styles.tagBranding },
-  { text: 'Графический Дизайн', className: styles.tagGraphic },
-  { text: 'Логотипы', className: styles.tagLogos },
-];
+import { useEffect, useRef } from "react";
+import SafeImage from "@/components/ui/SafeImage";
+import styles from "./Hero.module.css";
 
 const socialLinks = [
-  { href: 'https://t.me/', label: 'Telegram' },
-  { href: 'https://wa.me/', label: 'Whatsapp' },
-  { href: 'https://instagram.com/', label: 'Instagram' },
+  { href: "https://t.me/", label: "Telegram" },
+  { href: "https://wa.me/", label: "Whatsapp" },
+  { href: "https://instagram.com/", label: "Instagram" },
 ];
 
 export default function Hero() {
@@ -32,20 +24,11 @@ export default function Hero() {
       <div className={styles.gradientOrb} />
 
       <div className={`container ${styles.inner}`}>
-        {/* Floating skill labels */}
-        {floatingLabels.map((tag, i) => (
-          <span key={i} className={`${styles.tag} ${tag.className}`}>
-            {tag.text.split('\n').map((line, j) => (
-              <span key={j}>{line}{j < tag.text.split('\n').length - 1 && <br />}</span>
-            ))}
-          </span>
-        ))}
-
         {/* Main title */}
         <div className={styles.titleBlock}>
           <h1 className={styles.title}>
-            <span className={styles.titlePurple}>Дизайнер</span>
-            <span className={styles.titleBlack}>Элиза</span>
+            <span className={styles.titleBlack}>Дизайнер</span>
+            <span className={styles.titlePurple}>Элиза</span>
           </h1>
         </div>
 
@@ -59,8 +42,8 @@ export default function Hero() {
               src="/images/eliza.jpg"
               alt="Элиза — Дизайнер"
               fill
-              priority
-              style={{ objectFit: 'cover', objectPosition: 'center top' }}
+              preload
+              style={{ objectFit: "cover", objectPosition: "center top" }}
               sizes="(max-width: 768px) 100vw, 300px"
             />
           </div>
@@ -77,7 +60,6 @@ export default function Hero() {
         >
           Обсудить проект
         </a>
-
         <div className={styles.socials}>
           {socialLinks.map((s) => (
             <a

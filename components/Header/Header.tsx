@@ -29,10 +29,6 @@ export default function Header() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
-        <a href="#" className={styles.logo} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          Элиза
-        </a>
-
         <nav className={styles.nav}>
           {navLinks.map((link) => (
             <a

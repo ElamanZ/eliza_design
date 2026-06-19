@@ -1,34 +1,31 @@
 .hero {
   position: relative;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   overflow: hidden;
-  padding-top: 80px;
   background: var(--bg);
 }
 
-/* Purple gradient orb on left */
+/* Purple gradient — wide lavender wash on the left side */
 .gradientOrb {
   position: absolute;
-  left: -120px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(76, 60, 119, 0.18) 0%, rgba(76, 60, 119, 0.06) 50%, transparent 70%);
+  inset: 0;
+  background: radial-gradient(
+    ellipse 65% 90% at -5% 55%,
+    rgba(76, 60, 119, 0.22) 0%,
+    rgba(76, 60, 119, 0.12) 30%,
+    rgba(76, 60, 119, 0.04) 55%,
+    transparent 70%
+  );
   pointer-events: none;
 }
 
 .inner {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  min-height: calc(100vh - 180px);
-  gap: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
 }
 
 /* Main title */
@@ -41,22 +38,22 @@
 .title {
   display: flex;
   flex-direction: column;
-  line-height: 1;
+  line-height: 0.95;
   letter-spacing: -0.03em;
 }
 
-.titlePurple {
+.titleBlack {
   font-size: clamp(64px, 9vw, 128px);
-  font-weight: 900;
+  font-weight: 700;
   color: var(--purple);
   display: block;
   animation: slideInLeft 0.8s ease forwards;
   opacity: 0;
 }
 
-.titleBlack {
+.titlePurple {
   font-size: clamp(64px, 9vw, 128px);
-  font-weight: 900;
+  font-weight: 700;
   color: var(--black);
   display: block;
   animation: slideInLeft 0.8s ease 0.15s forwards;
@@ -65,77 +62,35 @@
 
 /* Right: description + photo */
 .rightBlock {
+  padding-top: 60px;
   grid-column: 2;
   grid-row: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   gap: 16px;
   z-index: 1;
+  max-width: 276px;
 }
 
 .description {
-  font-size: 15px;
-  font-weight: 400;
-  color: var(--black);
+  font-size: 18px;
+  font-weight: 500;
   max-width: 220px;
+  line-height: 1.2;
+  color: var(--black);
   text-align: left;
-  align-self: flex-end;
   animation: fadeIn 0.8s ease 0.4s forwards;
   opacity: 0;
 }
 
 .photoWrapper {
   position: relative;
-  width: 260px;
-  height: 320px;
-  border-radius: 4px;
+  width: 276px;
+  height: 284px;
   overflow: hidden;
   background: var(--gray-200);
   animation: fadeIn 0.8s ease 0.3s forwards;
   opacity: 0;
-}
-
-/* Floating skill tags */
-.tag {
-  position: absolute;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--black);
-  white-space: pre-line;
-  z-index: 2;
-  animation: fadeIn 1s ease forwards;
-  opacity: 0;
-}
-
-.tagExperience {
-  left: 6%;
-  top: 48%;
-  animation-delay: 0.6s;
-}
-
-.tagWebdev {
-  left: 30%;
-  top: 32%;
-  animation-delay: 0.7s;
-}
-
-.tagBranding {
-  left: 24%;
-  top: 56%;
-  animation-delay: 0.8s;
-}
-
-.tagGraphic {
-  left: 48%;
-  bottom: 28%;
-  animation-delay: 0.9s;
-}
-
-.tagLogos {
-  left: 28%;
-  bottom: 22%;
-  animation-delay: 1s;
 }
 
 /* Bottom CTA + socials */
@@ -143,10 +98,9 @@
   position: relative;
   z-index: 2;
   display: flex;
+  flex-direction: row;
   align-items: stretch;
-  margin-top: 0;
-  animation: fadeIn 0.8s ease 0.5s forwards;
-  opacity: 0;
+  width: 100%;
 }
 
 .ctaButton {
@@ -159,13 +113,13 @@
   font-weight: 600;
   padding: 18px 40px;
   letter-spacing: -0.01em;
-  transition: background 0.25s ease, transform 0.2s ease;
+  transition: background 0.25s ease;
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .ctaButton:hover {
   background: var(--purple);
-  transform: translateY(-1px);
 }
 
 .socials {
@@ -200,63 +154,56 @@
 
 /* Animations */
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
-/* Mobile */
+/* ── Tablet ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+
+
+  .titleBlack,
+  .titlePurple {
+    font-size: clamp(56px, 8vw, 96px);
+  }
+
+  .photoWrapper {
+    width: 220px;
+    height: 270px;
+  }
+}
+
+/* ── Mobile ── */
 @media (max-width: 768px) {
-  .hero {
-    padding-top: 100px;
-    min-height: auto;
-  }
+  
 
-  .gradientOrb {
-    width: 350px;
-    height: 350px;
-    left: -60px;
-    top: 30%;
-  }
-
-  .inner {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    min-height: auto;
-    gap: 24px;
-    padding-top: 20px;
-    padding-bottom: 32px;
-  }
-
-  .titleBlock {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
+  /* On mobile: Элиза (top, black) / Дизайнер (bottom, purple) */
   .title {
     flex-direction: column-reverse;
   }
 
-  .titlePurple,
+  /* Элиза (.titlePurple) floats to top → show as black */
+  .titlePurple {
+    font-size: clamp(52px, 14vw, 80px);
+    color: var(--black);
+  }
+
+  /* Дизайнер (.titleBlack) sinks to bottom → show as purple */
   .titleBlack {
     font-size: clamp(52px, 14vw, 80px);
+    color: var(--purple);
   }
 
   .rightBlock {
     grid-column: 1;
     grid-row: 2;
-    align-items: flex-start;
     flex-direction: row-reverse;
+    align-items: flex-start;
     gap: 16px;
   }
 
@@ -272,37 +219,28 @@
     flex-shrink: 0;
   }
 
-  /* Hide floating tags on small mobile */
-  .tag {
-    display: none;
-  }
-
   .bottom {
     flex-direction: column;
   }
 
   .ctaButton {
-    padding: 18px 32px;
+    padding: 18px 24px;
     font-size: 14px;
   }
 
   .socials {
-    border-top: none;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .titlePurple,
-  .titleBlack {
-    font-size: clamp(56px, 8vw, 96px);
+    flex-direction: column;
+    border: none;
   }
 
-  .photoWrapper {
-    width: 200px;
-    height: 250px;
+  .socialLink {
+    border: none;
+    border-top: 1px solid var(--gray-200);
+    padding: 14px 16px;
   }
 
-  .tag {
-    font-size: 12px;
+  .socialLink:last-child {
+    border-right: none;
+    border-bottom: 1px solid var(--gray-200);
   }
 }

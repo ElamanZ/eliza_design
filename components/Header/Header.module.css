@@ -1,5 +1,4 @@
 .header {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -17,14 +16,7 @@
 .inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--black);
-  letter-spacing: -0.02em;
+  justify-content: flex-end;
 }
 
 .nav {
@@ -34,8 +26,8 @@
 }
 
 .navLink {
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 500;
   color: var(--black);
   transition: color 0.2s;
 }
